@@ -34,7 +34,7 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
   const { dateFormat } = useDate();
   const { last_invoice_number } = useSelector(selectFinanceSettings);
   const [total, setTotal] = useState(0);
-  const [taxRate, setTaxRate] = useState(0);
+  const [taxRate, setTaxRate] = useState(0.13);
   const [taxTotal, setTaxTotal] = useState(0);
   const [currentYear, setCurrentYear] = useState(() => new Date().getFullYear());
   const [lastNumber, setLastNumber] = useState(() => last_invoice_number + 1);
@@ -240,22 +240,18 @@ function LoadInvoiceForm({ subTotal = 0, current = null }) {
           <Col className="gutter-row" span={4} offset={15}>
             <Form.Item
               name="taxRate"
+              initialValue={13}
               rules={[
                 {
                   required: true,
                 },
               ]}
             >
-              <Select
-                value={taxRate}
+              <InputNumber
                 onChange={handelTaxChange}
-                entity={'taxes'}
-                outputValue={'taxValue'}
-                displayLabels={['taxName']}
-                withRedirect={true}
-                urlToRedirect="/taxes"
-                redirectLabel={translate('Add New Tax')}
-                placeholder={translate('Select Tax Value')}
+                min={0}
+                addonAfter="%"
+                style={{ width: '100%' }}
               />
             </Form.Item>
           </Col>

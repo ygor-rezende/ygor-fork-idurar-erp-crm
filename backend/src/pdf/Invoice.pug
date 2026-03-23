@@ -59,7 +59,7 @@ html
       }
       h1.invoice{
         font-size:32px;
-        color:#52008c;
+        color:#1a8fcf;
         margin-top:0;
       }
       p.strong{
@@ -77,7 +77,7 @@ html
       }
 
       .tableHeader{
-        color:#52008c;
+        color:#1a8fcf;
       }
       .clearfix {
         display: block; }
@@ -204,7 +204,7 @@ html
       .table-invoice th {
         padding: 8px 10px;
         border-bottom: 1px solid #c2e0f2;
-        color:#52008c;
+        color:#1a8fcf;
         white-space: nowrap;
         font-weight: 700;
         font-size: 12px;
@@ -225,7 +225,7 @@ html
         vertical-align: top;
       }
       .table-invoice td.unit, .table-invoice td.qty, .table-invoice td.total {
-        
+        white-space: nowrap;
       }
       .table-invoice td.grand {
         border-top: 1px solid #5d6975;
@@ -264,8 +264,9 @@ html
           .right.company-info
               p.strong #{settings.company_name}
               p #{settings.company_address}
-              p #{settings.company_reg_number}
-              
+              p #{settings.company_state}
+              p GST/HST: #{settings.company_tax_number}
+              p #{settings.company_email}
         .col.col-24
           .space  
         .left.col-14
@@ -311,7 +312,7 @@ html
               td(colspan='3') #{translate('SUB TOTAL')}
               td.total #{moneyFormatter({amount:model.subTotal})}
             tr
-              td(colspan='3') #{translate('TAX')} #{model.taxRate} %
+              td(colspan='3') HST (#{model.taxRate}%) - Ontario
               td.total #{moneyFormatter({amount:model.taxTotal})}
             tr
               td.grand.total(colspan='3')  #{translate('TOTAL')} 
