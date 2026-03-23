@@ -18,7 +18,7 @@ async function setupApp() {
     const passwordHash = newAdminPassword.generateHash(salt, 'admin123');
 
     const demoAdmin = {
-      email: 'admin@admin.com',
+      email: 'hello@bespokescript.com',
       name: 'IDURAR',
       surname: 'Admin',
       enabled: true,
@@ -51,20 +51,7 @@ async function setupApp() {
 
     console.log('👍 Settings created : Done!');
 
-    const PaymentMode = require('../models/appModels/PaymentMode');
-    const Taxes = require('../models/appModels/Taxes');
 
-    await Taxes.insertMany([{ taxName: 'Tax 0%', taxValue: '0', isDefault: true }]);
-    console.log('👍 Taxes created : Done!');
-
-    await PaymentMode.insertMany([
-      {
-        name: 'Default Payment',
-        description: 'Default Payment Mode (Cash , Wire Transfer)',
-        isDefault: true,
-      },
-    ]);
-    console.log('👍 PaymentMode created : Done!');
 
     console.log('🥳 Setup completed :Success!');
     process.exit();
