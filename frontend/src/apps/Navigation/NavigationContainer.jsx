@@ -76,11 +76,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/payment'}>{translate('payments')}</Link>,
     },
 
-    {
-      key: 'paymentMode',
-      label: <Link to={'/payment/mode'}>{translate('payments_mode')}</Link>,
-      icon: <WalletOutlined />,
-    },
+
     {
       key: 'taxes',
       label: <Link to={'/taxes'}>{translate('taxes')}</Link>,

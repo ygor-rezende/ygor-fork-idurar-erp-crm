@@ -51,23 +51,7 @@ export default function PaymentForm({ maxAmount = null, isUpdateForm = false }) 
           addonBefore={money.currency_position === 'before' ? money.currency_symbol : undefined}
         />
       </Form.Item>
-      <Form.Item
-        label={translate('payment Mode')}
-        name="paymentMode"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <SelectAsync
-          entity={'paymentMode'}
-          displayLabels={['name']}
-          withRedirect={true}
-          urlToRedirect="/payment/mode"
-          redirectLabel="Add Payment Mode"
-        ></SelectAsync>
-      </Form.Item>
+
       <Form.Item label={translate('Reference')} name="ref">
         <Input />
       </Form.Item>
